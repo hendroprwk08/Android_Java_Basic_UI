@@ -76,9 +76,7 @@
             android:checked="true"
             android:text="Tek. Komputer"/>
 
-
     </RadioGroup>
-
 
     <Button
         android:layout_width="match_parent"
