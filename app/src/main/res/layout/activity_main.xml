@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrasi"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:layout_marginBottom="10dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama lengkap"
+        android:id="@+id/et_nama"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="NPM"
+        android:id="@+id/et_npm"/>
+
+    <EditText
+        android:inputType="textMultiLine"
+        android:lines="4"
+        android:gravity="top|left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Alamat"
+        android:id="@+id/et_alamat"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:entries="@array/prodi"
+        android:id="@+id/sp_prodi">
+    </Spinner>
+
+    <CheckBox
+        android:id="@+id/cb_teknologi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Teknologi"/>
+
+    <CheckBox
+        android:id="@+id/cb_kuliner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kuliner"/>
+
+    <RadioGroup
+        android:id="@+id/rg_kelas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rd_IK"
+            android:checked="true"
+            android:text="Inf. Komputer"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rd_TK"
+            android:checked="true"
+            android:text="Tek. Komputer"/>
+
+
+    </RadioGroup>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="SAVE"
+        android:id="@+id/bt_save"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="CANCEL"
+        android:id="@+id/bt_cancel" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="EDIT"
+            android:id="@+id/bt_edit"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="EXIT"
+            android:id="@+id/bt_exit"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</LinearLayout>

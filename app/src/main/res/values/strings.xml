@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Activity</string>
+    <string-array name="prodi">
+        <item> Teknik Informatika </item>
+        <item> Teknik Industri </item>
+        <item> Teknik Sipil </item>
+        <item> Ekonomi </item>
+        <item> Bahasa Indonesia </item>
+        <item> Desain Komunikasi Visual </item>
+    </string-array>
+</resources>
