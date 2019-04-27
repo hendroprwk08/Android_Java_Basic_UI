@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
     Spinner spProdi;
     CheckBox cbxTeknologi, cbxKuliner;
     RadioGroup rgKelas;
-    RadioButton rbIK, rbTI;
-    Button btSave, btEdit, btCancel, btExit;
+    RadioButton rbKelas;
+    Button btSave, btEdit, btCancel, btExit, btDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +45,11 @@ public class MainActivity extends AppCompatActivity {
         cbxTeknologi = (CheckBox) findViewById(R.id.cb_teknologi);
         cbxKuliner = (CheckBox) findViewById(R.id.cb_kuliner);
         rgKelas = (RadioGroup) findViewById(R.id.rg_kelas);
-        rbIK = (RadioButton) findViewById(R.id.rd_IK);
-        rbTI = (RadioButton) findViewById(R.id.rd_TK);
         btSave = (Button) findViewById(R.id.bt_save);
         btCancel = (Button) findViewById(R.id.bt_cancel);
         btEdit = (Button) findViewById(R.id.bt_edit);
         btExit = (Button) findViewById(R.id.bt_exit);
+        btDetail = (Button) findViewById(R.id.bt_detail);
 
         //memberikan fungsi pada tombol
         btSave.setOnClickListener(new View.OnClickListener() {
@@ -130,6 +129,52 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish(); //tutup aplikasi
+            }
+        });
+
+        btDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nama, npm, alamat, prodi, kelas;
+                Boolean teknologi, kuliner;
+
+                //definisikan nilai
+                nama = etNama.getText().toString();
+                npm = etNPM.getText().toString();
+                alamat = etAlamat.getText().toString();
+                prodi = spProdi.getSelectedItem().toString();
+                teknologi = cbxTeknologi.isChecked();
+                kuliner = cbxKuliner.isChecked();
+
+                //konfirmasi
+                if (nama.length() == 0 || npm.length() == 0 || alamat.length() == 0){
+                    Toast.makeText(getApplicationContext(),"Nama, NPM dan alamat wajid diisi", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                /*
+                triknya: pilih button group kemudian
+                ambil radio button mana yang dipilih
+                */
+
+                int selectedId = rgKelas.getCheckedRadioButtonId();
+                rbKelas = (RadioButton) findViewById(selectedId);
+                kelas = rbKelas.getText().toString(); //ambil hasil kelasnya
+
+                /*
+                Selipkan data yang ingin dikirim ke detail activity
+                dengan putExtra
+                */
+
+                Intent i = new Intent(MainActivity.this, DetailActivity.class);
+                i.putExtra("x_nama", nama);
+                i.putExtra("x_npm", npm);
+                i.putExtra("x_alamat", alamat);
+                i.putExtra("x_prodi", prodi);
+                i.putExtra("x_teknologi", teknologi); //boolean
+                i.putExtra("x_kuliner", kuliner); //boolean
+                i.putExtra("x_kelas", kelas);
+                getApplicationContext().startActivity(i);
             }
         });
     }
