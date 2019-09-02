@@ -21,7 +21,6 @@ public class DetailActivity extends AppCompatActivity {
     RadioGroup rgKelas;
     RadioButton rbIK, rbTK;
     CheckBox cbxTeknologi, cbxKuliner;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

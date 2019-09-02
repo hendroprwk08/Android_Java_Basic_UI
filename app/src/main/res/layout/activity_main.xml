@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:id="@+id/main_layout_id"
     tools:context=".MainActivity"
     android:padding="20dp">
 
@@ -121,8 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/holo_orange_light"
-                android:textColor="#fff"
-                android:hint="LIHAT DETIL"
+                android:text="LIHAT DETIL"
                 android:id="@+id/bt_detail"/>
 
             <LinearLayout
@@ -174,4 +172,4 @@
         </LinearLayout>
     </ScrollView>
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

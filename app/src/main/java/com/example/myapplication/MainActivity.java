@@ -10,9 +10,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -177,5 +181,37 @@ public class MainActivity extends AppCompatActivity {
                 getApplicationContext().startActivity(i);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_item, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.tambah:
+                View view = findViewById(R.id.main_layout_id); //layout main activity harus constraint
+                String message = "Snackbar message";
+                int duration = Snackbar.LENGTH_SHORT; //alt + enter pada "Snackbar" untuk mendownload dependency
+                showSnackbar(view, message, duration);
+        return true;
+            case R.id.selip:
+                Toast.makeText(getApplicationContext(), "action Selip", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.auto_update:
+                Toast.makeText(getApplicationContext(), "action Auto Renew", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void showSnackbar(View view, String message, int duration)
+    {
+        Snackbar.make(view, message, duration).show();
     }
 }
