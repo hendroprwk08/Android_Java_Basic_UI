@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
                 View view = findViewById(R.id.main_layout_id); //layout main activity harus constraint
                 String message = "Snackbar message";
                 int duration = Snackbar.LENGTH_SHORT; //alt + enter pada "Snackbar" untuk mendownload dependency
-                showSnackbar(view, message, duration);
+                Snackbar.make(view, message, duration).show();
         return true;
             case R.id.selip:
                 Toast.makeText(getApplicationContext(), "action Selip", Toast.LENGTH_SHORT).show();
@@ -208,10 +208,5 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    public void showSnackbar(View view, String message, int duration)
-    {
-        Snackbar.make(view, message, duration).show();
     }
 }
