@@ -34,11 +34,10 @@ public class MainActivity extends AppCompatActivity {
     CheckBox cbxTeknologi, cbxKuliner;
     RadioGroup rgKelas;
     RadioButton rbKelas;
-    Button btSave, btEdit, btCancel, btExit, btDetail;
+    Button btSave, btEdit, btCancel, btExit, btDetail, btSnack;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //hubungkan XML dengan java
@@ -54,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         btEdit = (Button) findViewById(R.id.bt_edit);
         btExit = (Button) findViewById(R.id.bt_exit);
         btDetail = (Button) findViewById(R.id.bt_detail);
+        btSnack = (Button) findViewById(R.id.bt_snack);
 
         //memberikan fungsi pada tombol
         btSave.setOnClickListener(new View.OnClickListener() {
@@ -66,30 +66,39 @@ public class MainActivity extends AppCompatActivity {
         btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //menampilkan dialog
-                new AlertDialog.Builder(MainActivity.this)
-                    .setIcon(R.mipmap.ic_launcher)
-                    .setTitle("Sabar")
-                    .setMessage("Ini dialog box")
-                    .setCancelable(true)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(getApplicationContext(),
-                                    "Anda baru menekan tombol OK",
-                                    Toast.LENGTH_SHORT)
-                                    .show();
-                        }
-                    })
-                    .setNegativeButton("Batal", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(getApplicationContext(),
-                                    "Tombol Batal ditekan",
-                                    Toast.LENGTH_SHORT)
-                                    .show();
-                        }
-                    }).show();
+            //menampilkan dialog
+            new AlertDialog.Builder(MainActivity.this)
+                .setIcon(R.mipmap.ic_launcher)
+                .setTitle("Sabar")
+                .setMessage("Ini dialog box")
+                .setCancelable(true)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(),
+                                "Anda baru menekan tombol OK",
+                                Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                })
+                .setNegativeButton("Batal", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(),
+                                "Tombol Batal ditekan",
+                                Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                })
+                .setNeutralButton("Netral", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getApplicationContext(),
+                                "Tombol Netral ditekan",
+                                Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                }).show();
             }
         });
 
@@ -179,6 +188,16 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra("x_kuliner", kuliner); //boolean
                 i.putExtra("x_kelas", kelas);
                 getApplicationContext().startActivity(i);
+            }
+        });
+
+        btSnack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View v = findViewById(R.id.main_layout_id);
+                String message = "Snackbar message";
+                int duration = Snackbar.LENGTH_SHORT;
+                Snackbar.make(v, message, duration).show();
             }
         });
     }

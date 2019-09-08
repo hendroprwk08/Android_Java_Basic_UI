@@ -163,6 +163,13 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="SNACK BAR"
+                    android:id="@+id/bt_snack"
+                    android:layout_weight="1"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:hint="EXIT"
                     android:id="@+id/bt_exit"
                     android:layout_weight="1"/>
