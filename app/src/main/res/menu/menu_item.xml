@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/cari"
+        android:icon="@drawable/ic_action_search"
+        android:title="Temukan"
+        app:showAsAction="always"
+        app:actionViewClass="android.widget.SearchView" />
+
     <item android:id="@+id/tambah"
         android:icon="@drawable/ic_action_add_circle_outline"
-        app:showAsAction="always"
-        android:title="Tambah"/>
+        android:title="Tambah"
+        app:showAsAction="never"/>
+
     <item android:id="@+id/selip"
         android:icon="@drawable/ic_action_attach_file"
-        app:showAsAction="ifRoom"
+        app:showAsAction="never"
         android:title="Selip"/>
+
     <item android:id="@+id/auto_update"
         android:icon="@drawable/ic_action_autorenew"
         app:showAsAction="never"
