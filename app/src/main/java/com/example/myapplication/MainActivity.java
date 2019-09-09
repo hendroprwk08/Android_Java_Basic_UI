@@ -189,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra("x_teknologi", teknologi); //boolean
                 i.putExtra("x_kuliner", kuliner); //boolean
                 i.putExtra("x_kelas", kelas);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getApplicationContext().startActivity(i);
             }
         });
