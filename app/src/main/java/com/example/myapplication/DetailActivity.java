@@ -18,8 +18,8 @@ import java.io.Console;
 public class DetailActivity extends AppCompatActivity {
 
     TextView tvNama, tvNPM, tvAlamat, tvProdi;
-    RadioGroup rgKelas;
-    RadioButton rbIK, rbTK;
+    RadioGroup rgDomisili;
+    RadioButton rbDK, rbLK;
     CheckBox cbxTeknologi, cbxKuliner;
 
     @Override
@@ -34,9 +34,9 @@ public class DetailActivity extends AppCompatActivity {
         tvProdi = (TextView) findViewById(R.id.tv_prodi);
         cbxTeknologi = (CheckBox) findViewById(R.id.cb_teknologi);
         cbxKuliner = (CheckBox) findViewById(R.id.cb_kuliner);
-        rgKelas = (RadioGroup) findViewById(R.id.rg_kelas);
-        rbIK = (RadioButton) findViewById(R.id.rd_IK);
-        rbTK = (RadioButton) findViewById(R.id.rd_TK);
+        rgDomisili = (RadioGroup) findViewById(R.id.rg_domisili);
+        rbDK = (RadioButton) findViewById(R.id.rb_DK);
+        rbLK = (RadioButton) findViewById(R.id.rb_LK);
 
         //tangkap extra yang dikirim dari main activity
         Intent i = getIntent();
@@ -47,11 +47,11 @@ public class DetailActivity extends AppCompatActivity {
         cbxTeknologi.setChecked(i.getBooleanExtra("x_teknologi", false));
         cbxKuliner.setChecked(i.getBooleanExtra("x_kuliner", false));
 
-        String kelas = i.getStringExtra("x_kelas");
-        if (kelas.equals("Tek. Komputer")){
-            rbTK.setChecked(true);
+        String kelas = i.getStringExtra("x_domisili");
+        if (kelas.equals("Luar Kota")){
+            rbDK.setChecked(true);
         }else{
-            rbIK.setChecked(true);
+            rbLK.setChecked(true);
         }
 
         /*

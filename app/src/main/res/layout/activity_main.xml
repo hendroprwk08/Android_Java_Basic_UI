@@ -75,26 +75,26 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Kelas"/>
+                android:text="Domisili" />
 
             <RadioGroup
-                android:id="@+id/rg_kelas"
+                android:id="@+id/rg_domisili"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/rd_IK"
+                    android:id="@+id/rb_DK"
                     android:checked="true"
-                    android:text="Inf. Komputer"/>
+                    android:text="Dalam Kota"/>
 
                 <RadioButton
+                    android:id="@+id/rb_LK"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/rd_TK"
                     android:checked="true"
-                    android:text="Tek. Komputer"/>
+                    android:text="Luar Kota" />
 
             </RadioGroup>
 

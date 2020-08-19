@@ -76,24 +76,24 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Kelas"/>
+        android:text="Domisili"/>
 
     <RadioGroup
-        android:id="@+id/rg_kelas"
+        android:id="@+id/rg_domisili"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/rd_IK"
-            android:text="Inf. Komputer"/>
+            android:id="@+id/rb_DK"
+            android:text="Dalam Kota"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/rd_TK"
-            android:text="Tek. Komputer"/>
+            android:id="@+id/rb_LK"
+            android:text="Luar Kota"/>
 
     </RadioGroup>
 

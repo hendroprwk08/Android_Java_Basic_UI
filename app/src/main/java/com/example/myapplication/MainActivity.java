@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
     EditText etNama, etNPM, etAlamat;
     Spinner spProdi;
     CheckBox cbxTeknologi, cbxKuliner;
-    RadioGroup rgKelas;
-    RadioButton rbKelas;
+    RadioGroup rgDomisili;
+    RadioButton rbDomisili;
     Button btSave, btEdit, btCancel, btExit, btDetail, btSnack;
 
     @Override
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         spProdi = (Spinner) findViewById(R.id.sp_prodi);
         cbxTeknologi = (CheckBox) findViewById(R.id.cb_teknologi);
         cbxKuliner = (CheckBox) findViewById(R.id.cb_kuliner);
-        rgKelas = (RadioGroup) findViewById(R.id.rg_kelas);
+        rgDomisili = (RadioGroup) findViewById(R.id.rg_domisili);
         btSave = (Button) findViewById(R.id.bt_save);
         btCancel = (Button) findViewById(R.id.bt_cancel);
         btEdit = (Button) findViewById(R.id.bt_edit);
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
         btDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nama, npm, alamat, prodi, kelas;
+                String nama, npm, alamat, prodi, domisili;
                 Boolean teknologi, kuliner;
 
                 //definisikan nilai
@@ -172,9 +172,9 @@ public class MainActivity extends AppCompatActivity {
                 ambil radio button mana yang dipilih
                 */
 
-                int selectedId = rgKelas.getCheckedRadioButtonId();
-                rbKelas = (RadioButton) findViewById(selectedId);
-                kelas = rbKelas.getText().toString(); //ambil hasil kelasnya
+                int selectedId = rgDomisili.getCheckedRadioButtonId();
+                rbDomisili = (RadioButton) findViewById(selectedId);
+                domisili = rbDomisili.getText().toString(); //ambil hasil kelasnya
 
                 /*
                 Selipkan data yang ingin dikirim ke detail activity
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra("x_prodi", prodi);
                 i.putExtra("x_teknologi", teknologi); //boolean
                 i.putExtra("x_kuliner", kuliner); //boolean
-                i.putExtra("x_kelas", kelas);
+                i.putExtra("x_domisili", domisili);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getApplicationContext().startActivity(i);
             }
