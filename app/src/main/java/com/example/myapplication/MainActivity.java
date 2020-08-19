@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox cbxTeknologi, cbxKuliner;
     RadioGroup rgDomisili;
     RadioButton rbDomisili;
-    Button btSave, btEdit, btCancel, btExit, btDetail, btSnack;
+    Button btToast, btNotifikasi, btDialog, btKeluar, btDetail, btSnack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState);
@@ -50,28 +49,28 @@ public class MainActivity extends AppCompatActivity {
         cbxTeknologi = (CheckBox) findViewById(R.id.cb_teknologi);
         cbxKuliner = (CheckBox) findViewById(R.id.cb_kuliner);
         rgDomisili = (RadioGroup) findViewById(R.id.rg_domisili);
-        btSave = (Button) findViewById(R.id.bt_save);
-        btCancel = (Button) findViewById(R.id.bt_cancel);
-        btEdit = (Button) findViewById(R.id.bt_edit);
-        btExit = (Button) findViewById(R.id.bt_exit);
+        btToast = (Button) findViewById(R.id.bt_toast);
+        btDialog = (Button) findViewById(R.id.bt_dialog);
+        btNotifikasi = (Button) findViewById(R.id.bt_notif);
+        btKeluar = (Button) findViewById(R.id.bt_keluar);
         btDetail = (Button) findViewById(R.id.bt_detail);
         btSnack = (Button) findViewById(R.id.bt_snack);
 
         //memberikan fungsi pada tombol
-        btSave.setOnClickListener(new View.OnClickListener() {
+        btToast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Hai bro", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Hai kawan, apa kabar?", Toast.LENGTH_SHORT).show();
             }
         });
 
-        btCancel.setOnClickListener(new View.OnClickListener() {
+        btDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
             //menampilkan dialog
             new AlertDialog.Builder(MainActivity.this)
                 .setIcon(R.mipmap.ic_launcher)
-                .setTitle("Sabar")
+                .setTitle("Perhatian")
                 .setMessage("Ini dialog box")
                 .setCancelable(true)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -104,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btEdit.setOnClickListener(new View.OnClickListener() {
+        btNotifikasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //notifikasi
@@ -131,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     NotificationChannel channel = new NotificationChannel("notify_001",
-                            "Channel human readable title",
+                            "Channelku",
                             NotificationManager.IMPORTANCE_DEFAULT);
                     mNotificationManager.createNotificationChannel(channel);
                 }
@@ -140,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btExit.setOnClickListener(new View.OnClickListener() {
+        btKeluar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish(); //tutup aplikasi

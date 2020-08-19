@@ -14,7 +14,6 @@
         android:text="Registrasi diterima"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
 
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

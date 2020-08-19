@@ -133,18 +133,18 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorAccent"
                     android:textColor="#fff"
-                    android:hint="SAVE"
+                    android:hint="TOAST"
                     android:layout_weight="1"
-                    android:id="@+id/bt_save"/>
+                    android:id="@+id/bt_toast"/>
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@android:color/holo_green_light"
                     android:textColor="#fff"
-                    android:hint="CANCEL"
+                    android:hint="DIALOG"
                     android:layout_weight="1"
-                    android:id="@+id/bt_cancel" />
+                    android:id="@+id/bt_dialog" />
 
             </LinearLayout>
 
@@ -156,8 +156,8 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="EDIT"
-                    android:id="@+id/bt_edit"
+                    android:hint="NOTIFIKASI"
+                    android:id="@+id/bt_notif"
                     android:layout_weight="1"/>
 
                 <Button
@@ -170,8 +170,8 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="EXIT"
-                    android:id="@+id/bt_exit"
+                    android:hint="KELUAR"
+                    android:id="@+id/bt_keluar"
                     android:layout_weight="1"/>
 
             </LinearLayout>
