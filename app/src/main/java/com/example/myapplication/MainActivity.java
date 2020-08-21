@@ -10,9 +10,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.NotificationCompat;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.core.app.NotificationCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         btDialog = (Button) findViewById(R.id.bt_dialog);
         btNotifikasi = (Button) findViewById(R.id.bt_notif);
         btKeluar = (Button) findViewById(R.id.bt_keluar);
-        btDetail = (Button) findViewById(R.id.bt_detail);
+        btDetail = (Button) findViewById(R.id.bt_detil);
         btSnack = (Button) findViewById(R.id.bt_snack);
 
         //memberikan fungsi pada tombol
@@ -113,13 +113,13 @@ public class MainActivity extends AppCompatActivity {
                 PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, ii, 0);
 
                 NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
-                bigText.setBigContentTitle("Aplikasi buatanku");
+                bigText.setBigContentTitle("Latihan01");
                 bigText.setSummaryText("Ini adalah notifikasi dariku");
 
                 mBuilder.setContentIntent(pendingIntent);
-                mBuilder.setSmallIcon(R.mipmap.ic_launcher_round);
+                mBuilder.setSmallIcon(R.mipmap.ic_launcher);
                 mBuilder.setContentTitle("Aplikasi buatanku");
-                mBuilder.setContentText("Notifikasi ini menggunakan versi terbaru");
+                mBuilder.setContentText("Notifikasi ini menggunakan java");
                 mBuilder.setPriority(Notification.PRIORITY_MAX);
                 mBuilder.setStyle(bigText);
                 mBuilder.setDefaults(Notification.DEFAULT_SOUND); //suara
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     NotificationChannel channel = new NotificationChannel("notify_001",
-                            "Channelku",
+                            "channelku",
                             NotificationManager.IMPORTANCE_DEFAULT);
                     mNotificationManager.createNotificationChannel(channel);
                 }
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //konfirmasi
                 if (nama.length() == 0 || npm.length() == 0 || alamat.length() == 0){
-                    Toast.makeText(getApplicationContext(),"Nama, NPM dan alamat wajid diisi", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Nama, NPM dan Alamat wajid diisi", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -202,12 +202,12 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(v, message, duration).show();
             }
         });
-
-        Intent intent = getIntent();
-        if (intent.ACTION_SEARCH.equals(intent.getAction())){
-            String query = intent.getStringExtra(SearchManager.QUERY);
-            Toast.makeText(getApplicationContext(), query, Toast.LENGTH_SHORT).show();
-        }
+//
+//        Intent intent = getIntent();
+//        if (intent.ACTION_SEARCH.equals(intent.getAction())){
+//            String query = intent.getStringExtra(SearchManager.QUERY);
+//            Toast.makeText(getApplicationContext(), query, Toast.LENGTH_SHORT).show();
+//        }
     }
 
     @Override
@@ -220,13 +220,13 @@ public class MainActivity extends AppCompatActivity {
         SearchView searchView = (SearchView) item.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String s) {
+            public boolean onQueryTextSubmit(String s) { //ketika tekan enter
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
                 return false;
             }
 
             @Override
-            public boolean onQueryTextChange(String s) {
-                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+            public boolean onQueryTextChange(String s) { //ketika text berubah
                 return false;
             }
         });
@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.tambah:
                 View view = findViewById(R.id.main_layout_id); //layout main activity harus constraint
-                String message = "Snackbar message";
+                String message = "Snackbar action Tambah";
                 int duration = Snackbar.LENGTH_SHORT; //alt + enter pada "Snackbar" untuk mendownload dependency
                 Snackbar.make(view, message, duration).show();
         return true;
@@ -247,7 +247,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "action Selip", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.auto_update:
-                Toast.makeText(getApplicationContext(), "action Auto Renew", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "action Update", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
