@@ -202,12 +202,6 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(v, message, duration).show();
             }
         });
-//
-//        Intent intent = getIntent();
-//        if (intent.ACTION_SEARCH.equals(intent.getAction())){
-//            String query = intent.getStringExtra(SearchManager.QUERY);
-//            Toast.makeText(getApplicationContext(), query, Toast.LENGTH_SHORT).show();
-//        }
     }
 
     @Override
