@@ -20,13 +20,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Registrasi"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:layout_marginBottom="30dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:text="Nama Lengkap"/>
 
             <EditText
@@ -34,17 +27,6 @@
                 android:layout_height="wrap_content"
                 android:hint="Nama lengkap"
                 android:id="@+id/et_nama"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Nomer Pokok Mahasiswa"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="NPM"
-                android:id="@+id/et_npm"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -157,7 +139,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="NOTIFIKASI"
-                    android:id="@+id/bt_notif"
+                    android:id="@+id/bt_notifikasi"
                     android:layout_weight="1"/>
 
                 <Button

@@ -10,6 +10,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
+
+import com.example.myapplication.databinding.ActivityMainBinding;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.core.app.NotificationCompat;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,43 +30,24 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
-    //definisi widget
-    EditText etNama, etNPM, etAlamat;
-    Spinner spProdi;
-    CheckBox cbxTeknologi, cbxKuliner;
-    RadioGroup rgDomisili;
-    RadioButton rbDomisili;
-    Button btToast, btNotifikasi, btDialog, btKeluar, btDetail, btSnack;
+    private ActivityMainBinding binding;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        //hubungkan XML dengan java
-        etNama = (EditText) findViewById(R.id.et_nama);
-        etNPM = (EditText) findViewById(R.id.et_npm);
-        etAlamat = (EditText) findViewById(R.id.et_alamat);
-        spProdi = (Spinner) findViewById(R.id.sp_prodi);
-        cbxTeknologi = (CheckBox) findViewById(R.id.cb_teknologi);
-        cbxKuliner = (CheckBox) findViewById(R.id.cb_kuliner);
-        rgDomisili = (RadioGroup) findViewById(R.id.rg_domisili);
-        btToast = (Button) findViewById(R.id.bt_toast);
-        btDialog = (Button) findViewById(R.id.bt_dialog);
-        btNotifikasi = (Button) findViewById(R.id.bt_notif);
-        btKeluar = (Button) findViewById(R.id.bt_keluar);
-        btDetail = (Button) findViewById(R.id.bt_detil);
-        btSnack = (Button) findViewById(R.id.bt_snack);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
         //memberikan fungsi pada tombol
-        btToast.setOnClickListener(new View.OnClickListener() {
+        binding.btToast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Hai kawan, apa kabar?", Toast.LENGTH_SHORT).show();
             }
         });
 
-        btDialog.setOnClickListener(new View.OnClickListener() {
+        binding.btDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
             //menampilkan dialog
@@ -103,14 +86,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btNotifikasi.setOnClickListener(new View.OnClickListener() {
+        binding.btNotifikasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //notifikasi
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(getApplicationContext(), "notify_001");
                 Intent ii = new Intent(getApplicationContext(), MainActivity.class);
-                PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, ii, 0);
+                PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, ii, PendingIntent.FLAG_IMMUTABLE);
 
                 NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
                 bigText.setBigContentTitle("Latihan01");
@@ -139,29 +122,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btKeluar.setOnClickListener(new View.OnClickListener() {
+        binding.btKeluar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish(); //tutup aplikasi
             }
         });
 
-        btDetail.setOnClickListener(new View.OnClickListener() {
+        binding.btDetil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String nama, npm, alamat, prodi, domisili;
                 Boolean teknologi, kuliner;
 
                 //definisikan nilai
-                nama = etNama.getText().toString();
-                npm = etNPM.getText().toString();
-                alamat = etAlamat.getText().toString();
-                prodi = spProdi.getSelectedItem().toString();
-                teknologi = cbxTeknologi.isChecked();
-                kuliner = cbxKuliner.isChecked();
+                nama = binding.etNama.getText().toString();
+                alamat = binding.etAlamat.getText().toString();
+                prodi = binding.spProdi.getSelectedItem().toString();
+                teknologi = binding.cbTeknologi.isChecked();
+                kuliner = binding.cbKuliner.isChecked();
 
                 //konfirmasi
-                if (nama.length() == 0 || npm.length() == 0 || alamat.length() == 0){
+                if (nama.length() == 0 || alamat.length() == 0){
                     Toast.makeText(getApplicationContext(),"Nama, NPM dan Alamat wajid diisi", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -171,9 +153,8 @@ public class MainActivity extends AppCompatActivity {
                 ambil radio button mana yang dipilih
                 */
 
-                int selectedId = rgDomisili.getCheckedRadioButtonId();
-                rbDomisili = (RadioButton) findViewById(selectedId);
-                domisili = rbDomisili.getText().toString(); //ambil hasil kelasnya
+                int selectedId = binding.rgDomisili.getCheckedRadioButtonId();
+                domisili = binding.rgDomisili.toString(); //ambil hasil kelasnya
 
                 /*
                 Selipkan data yang ingin dikirim ke detail activity
@@ -182,7 +163,6 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent i = new Intent(MainActivity.this, DetailActivity.class);
                 i.putExtra("x_nama", nama);
-                i.putExtra("x_npm", npm);
                 i.putExtra("x_alamat", alamat);
                 i.putExtra("x_prodi", prodi);
                 i.putExtra("x_teknologi", teknologi); //boolean
@@ -193,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btSnack.setOnClickListener(new View.OnClickListener() {
+        binding.btSnack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 View v = findViewById(R.id.main_layout_id);
