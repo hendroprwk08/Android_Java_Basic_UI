@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Basic UI</string>
+    <string name="full_name">Full Name</string>
+    <string name="address">Address</string>
+    <string name="study_program">Study_Program</string>
+    <string name="domicile">Domicile</string>
+    <string name="in_town">In Town</string>
+    <string name="out_of_town">Out of Town</string>
+    <string name="hobby">Hobby</string>
+    <string name="technology">Technology</string>
+    <string name="culinary">Culinary</string>
+    <string name="detail">Detail</string>
+    <string name="notification">Notification</string>
+    <string name="close">Close</string>
+
+    <string-array name="study">
+        <item>Informatics Engineering</item>
+        <item>Industrial Engineering</item>
+        <item>Economics</item>
+        <item>Visual Communication Design</item>
+    </string-array>
+    <string name="registration_accepted">Registration Accepted</string>
+    <string name="registration_info">The data listed below has been verified</string>
+</resources>

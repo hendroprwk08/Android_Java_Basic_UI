@@ -50,8 +50,9 @@ public class DetailActivity extends AppCompatActivity {
         onOptionsItemSelected(MenuItem item)
         */
 
-        getSupportActionBar().setTitle("Detail Activity");
+        setSupportActionBar(binding.toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
     @Override

@@ -1,9 +1,28 @@
 <resources>
     <string name="app_name">Basic UI</string>
-    <string-array name="prodi">
-        <item> Teknik Informatika </item>
-        <item> Teknik Industri </item>
-        <item> Ekonomi </item>
-        <item> Desain Komunikasi Visual </item>
+    <string name="full_name">Nama Lengkap</string>
+    <string name="address">Alamat</string>
+    <string name="study_program">Program Study</string>
+    <string name="domicile">Domisili</string>
+    <string name="in_town">Dalam Kota</string>
+    <string name="out_of_town">Luar Kota</string>
+    <string name="hobby">Hobi</string>
+    <string name="technology">Teknologi</string>
+    <string name="culinary">Kuliner</string>
+    <string name="detail">Detil</string>
+    <string name="toast" translatable="false">Toast</string>
+    <string name="dialog" translatable="false">Dialog</string>
+    <string name="snack_bar" translatable="false">Snack Bar</string>
+    <string name="notification">Notifikasi</string>
+
+    <string-array name="study">
+        <item>Teknik Informatika</item>
+        <item>Teknik Industri</item>
+        <item>Ekonomi</item>
+        <item>Desain Komunikasi Visual</item>
     </string-array>
+
+    <string name="close">Keluar</string>
+    <string name="registration_accepted">Registrasi diterima</string>
+    <string name="registration_info">Data yang tertera dibawah ini telah melakukan verifikasi</string>
 </resources>

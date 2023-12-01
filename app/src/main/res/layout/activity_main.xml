@@ -1,63 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:id="@+id/main_layout_id"
     tools:context=".MainActivity">
 
-    <ScrollView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/white"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="@dimen/dp_16">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nama Lengkap"/>
+                android:text="@string/full_name" />
 
             <EditText
+                android:id="@+id/et_nama"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nama lengkap"
-                android:id="@+id/et_nama"/>
+                android:layout_height="@dimen/dp_48"
+                android:hint="@string/full_name" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Alamat domisili sesuai kartu identitas"/>
+                android:text="@string/address" />
 
             <EditText
-                android:inputType="textMultiLine"
-                android:lines="3"
+                android:id="@+id/et_alamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="top|left"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Alamat"
-                android:id="@+id/et_alamat"/>
+                android:hint="@string/address"
+                android:inputType="textMultiLine"
+                android:lines="3" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Program Studi"/>
+                android:text="@string/study_program" />
 
             <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:entries="@array/prodi"
                 android:id="@+id/sp_prodi"
-                android:padding="15dp"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/study"
+                android:padding="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Domisili" />
+                android:text="@string/domicile" />
 
             <RadioGroup
                 android:id="@+id/rg_domisili"
@@ -65,45 +76,45 @@
                 android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/rb_DK"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_48"
                     android:checked="true"
-                    android:text="Dalam Kota"/>
+                    android:text="@string/in_town" />
 
                 <RadioButton
                     android:id="@+id/rb_LK"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/dp_48"
                     android:checked="true"
-                    android:text="Luar Kota" />
+                    android:text="@string/out_of_town" />
 
             </RadioGroup>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hobi"/>
+                android:text="@string/hobby" />
 
             <CheckBox
                 android:id="@+id/cb_teknologi"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Teknologi"/>
+                android:layout_height="@dimen/dp_48"
+                android:text="@string/technology" />
 
             <CheckBox
                 android:id="@+id/cb_kuliner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Kuliner"
-                android:layout_marginBottom="20dp"/>
+                android:layout_height="@dimen/dp_48"
+                android:layout_marginBottom="20dp"
+                android:text="@string/culinary" />
 
             <Button
+                android:id="@+id/bt_detil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/holo_orange_light"
-                android:text="LIHAT DETIL"
-                android:id="@+id/bt_detil"/>
+                android:text="@string/detail" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -111,22 +122,24 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/bt_toast"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorAccent"
-                    android:textColor="#fff"
-                    android:hint="TOAST"
+                    android:layout_marginRight="@dimen/dp_1"
                     android:layout_weight="1"
-                    android:id="@+id/bt_toast"/>
+                    android:backgroundTint="@color/colorAccent"
+                    android:text="@string/toast"
+                    android:textColor="#fff" />
 
                 <Button
+                    android:id="@+id/bt_dialog"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/holo_green_light"
-                    android:textColor="#fff"
-                    android:hint="DIALOG"
                     android:layout_weight="1"
-                    android:id="@+id/bt_dialog" />
+                    android:layout_marginLeft="@dimen/dp_1"
+                    android:backgroundTint="@android:color/holo_green_light"
+                    android:text="@string/dialog"
+                    android:textColor="#fff" />
 
             </LinearLayout>
 
@@ -136,29 +149,30 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="NOTIFIKASI"
                     android:id="@+id/bt_notifikasi"
-                    android:layout_weight="1"/>
-
-                <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="SNACK BAR"
+                    android:layout_weight="1"
+                    android:text="@string/notification" />
+
+                <Button
                     android:id="@+id/bt_snack"
-                    android:layout_weight="1"/>
-
-                <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="KELUAR"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="@dimen/dp_1"
+                    android:text="@string/snack_bar" />
+
+                <Button
                     android:id="@+id/bt_keluar"
-                    android:layout_weight="1"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/close" />
 
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

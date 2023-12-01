@@ -31,13 +31,15 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        //toolbar menu
+        binding.toolbar.inflateMenu(R.menu.menu_item);
 
         //memberikan fungsi pada tombol
         binding.btToast.setOnClickListener(new View.OnClickListener() {
@@ -144,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //konfirmasi
                 if (nama.length() == 0 || alamat.length() == 0){
-                    Toast.makeText(getApplicationContext(),"Nama, NPM dan Alamat wajid diisi", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Nama dan Alamat belum diisi", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
