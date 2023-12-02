@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Basic UI</string>
+    <string name="app_name" translatable="false">Basic UI</string>
     <string name="full_name">Nama Lengkap</string>
     <string name="address">Alamat</string>
     <string name="study_program">Program Study</string>
@@ -22,7 +22,7 @@
         <item>Desain Komunikasi Visual</item>
     </string-array>
 
-    <string name="close">Keluar</string>
-    <string name="registration_accepted">Registrasi diterima</string>
+    <string name="close">Tutup</string>
+    <string name="registration_accepted">Pendaftaran diterima</string>
     <string name="registration_info">Data yang tertera dibawah ini telah melakukan verifikasi</string>
 </resources>

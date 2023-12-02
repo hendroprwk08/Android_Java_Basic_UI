@@ -12,12 +12,7 @@
         android:title="Tambah"
         app:showAsAction="never"/>
 
-    <item android:id="@+id/selip"
-        android:icon="@drawable/ic_action_attach_file"
-        app:showAsAction="never"
-        android:title="Selip"/>
-
-    <item android:id="@+id/auto_update"
+    <item android:id="@+id/update"
         android:icon="@drawable/ic_action_autorenew"
         app:showAsAction="never"
         android:title="Update"/>

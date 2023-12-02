@@ -218,11 +218,8 @@ public class MainActivity extends AppCompatActivity {
                 String message = "Snackbar action Tambah";
                 int duration = Snackbar.LENGTH_SHORT; //alt + enter pada "Snackbar" untuk mendownload dependency
                 Snackbar.make(view, message, duration).show();
-        return true;
-            case R.id.selip:
-                Toast.makeText(getApplicationContext(), "action Selip", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.auto_update:
+            case R.id.update:
                 Toast.makeText(getApplicationContext(), "action Update", Toast.LENGTH_SHORT).show();
                 return true;
             default:
