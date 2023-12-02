@@ -12,7 +12,7 @@
     <string name="detail">Detil</string>
     <string name="toast" translatable="false">Toast</string>
     <string name="dialog" translatable="false">Dialog</string>
-    <string name="snack_bar" translatable="false">Snack Bar</string>
+    <string name="snack_bar" translatable="false">Snackbar</string>
     <string name="notification">Notifikasi</string>
 
     <string-array name="study">

@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    viewBinding {
-        enabled = true
+    buildFeatures {
+        viewBinding = true
     }
 
     defaultConfig {
