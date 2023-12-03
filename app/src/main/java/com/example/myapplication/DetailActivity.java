@@ -1,27 +1,22 @@
 package com.example.myapplication;
 
 import android.content.Intent;
-
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.databinding.ActivityDetailBinding;
-import com.example.myapplication.databinding.ActivityMainBinding;
+
+import java.util.Objects;
 
 public class DetailActivity extends AppCompatActivity {
-
-    private ActivityDetailBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityDetailBinding.inflate(getLayoutInflater());
+        ActivityDetailBinding binding = ActivityDetailBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
 
@@ -34,9 +29,10 @@ public class DetailActivity extends AppCompatActivity {
         binding.cbKuliner.setChecked(i.getBooleanExtra("x_kuliner", false));
 
         String kelas = i.getStringExtra("x_domisili");
-        if (kelas.equals("Luar Kota")){
+        assert kelas != null;
+        if (kelas.equals("Luar Kota")) {
             binding.rbDK.setChecked(true);
-        }else{
+        } else {
             binding.rbLK.setChecked(true);
         }
 
@@ -49,18 +45,16 @@ public class DetailActivity extends AppCompatActivity {
         */
 
         setSupportActionBar(binding.toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:
-                finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 }
