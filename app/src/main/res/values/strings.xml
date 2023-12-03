@@ -14,6 +14,7 @@
     <string name="dialog" translatable="false">Dialog</string>
     <string name="snack_bar" translatable="false">Snackbar</string>
     <string name="notification">Notifikasi</string>
+    <string name="how_are_you">Bagaimana kabarmu?</string>
 
     <string-array name="study">
         <item>Teknik Informatika</item>
@@ -25,4 +26,10 @@
     <string name="close">Tutup</string>
     <string name="registration_accepted">Pendaftaran diterima</string>
     <string name="registration_info">Data yang tertera dibawah ini telah melakukan verifikasi</string>
+    <string name="warn">Perhatian</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="cancel">Batal</string>
+    <string name="neutral">Netral</string>
+    <string name="hello">Halo, ini aplikasi buatanku</string>
+    <string name="complete_warn">Nama dan Alamat belum diisi</string>
 </resources>

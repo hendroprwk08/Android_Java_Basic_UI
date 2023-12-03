@@ -12,6 +12,7 @@
     <string name="detail">Detail</string>
     <string name="notification">Notification</string>
     <string name="close">Close</string>
+    <string name="how_are_you">How are you?</string>
 
     <string-array name="study">
         <item>Informatics Engineering</item>
@@ -19,6 +20,12 @@
         <item>Economics</item>
         <item>Visual Communication Design</item>
     </string-array>
+
     <string name="registration_accepted">Registration Accepted</string>
     <string name="registration_info">The data listed below has been verified</string>
+    <string name="warn">Warning</string>
+    <string name="cancel">Cancel</string>
+    <string name="neutral">Neutral</string>
+    <string name="hello">Hello, this is my app</string>
+    <string name="complete_warn">Name and Address have not been filled in</string>
 </resources>
