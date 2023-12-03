@@ -7,8 +7,10 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
 import com.google.android.material.snackbar.Snackbar;
@@ -71,36 +74,49 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.btNotifikasi.setOnClickListener(v -> {
-            //notifikasi
-            NotificationCompat.Builder mBuilder =
-                    new NotificationCompat.Builder(getApplicationContext(), "notify_001");
-            Intent ii = new Intent(getApplicationContext(), MainActivity.class);
-            PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, ii, PendingIntent.FLAG_IMMUTABLE);
+            // apakah permission sudah diaktifkan pada ponsel?
+            if(NotificationManagerCompat.from(this).areNotificationsEnabled())
+            {
+                //notifikasi
+                NotificationCompat.Builder mBuilder =
+                        new NotificationCompat.Builder(getApplicationContext(), "notify_001");
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, i, PendingIntent.FLAG_IMMUTABLE);
 
-            NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
-            bigText.setBigContentTitle(getApplicationContext().getResources().getResourceName(R.string.app_name));
-            bigText.setSummaryText(getApplicationContext().getResources().getResourceName(R.string.hello));
+                NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
+                bigText.setBigContentTitle(getApplicationContext().getResources().getString(R.string.app_name));
+                bigText.setSummaryText(getApplicationContext().getResources().getString(R.string.hello));
 
-            mBuilder.setContentIntent(pendingIntent);
-            mBuilder.setSmallIcon(R.mipmap.ic_launcher);
-            mBuilder.setContentTitle(getApplicationContext().getResources().getResourceName(R.string.warn));
-            mBuilder.setContentText(getApplicationContext().getResources().getResourceName(R.string.how_are_you));
-            mBuilder.setPriority(Notification.PRIORITY_MAX);
-            mBuilder.setStyle(bigText);
-            mBuilder.setDefaults(Notification.DEFAULT_SOUND); //suara
-            mBuilder.setVibrate(new long[]{1000, 1000, 1000, 1000, 1000, 1000}); //getar
+                mBuilder.setContentIntent(pendingIntent);
+                mBuilder.setSmallIcon(R.mipmap.ic_launcher);
+                mBuilder.setContentTitle(getApplicationContext().getResources().getString(R.string.warn));
+                mBuilder.setContentText(getApplicationContext().getResources().getString(R.string.how_are_you));
+                mBuilder.setPriority(Notification.PRIORITY_MAX);
+                mBuilder.setStyle(bigText);
+                mBuilder.setDefaults(Notification.DEFAULT_SOUND); //suara
+                mBuilder.setVibrate(new long[]{1000, 1000, 1000, 1000, 1000, 1000}); //getar
 
-            NotificationManager mNotificationManager =
-                    (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+                NotificationManager mNotificationManager =
+                        (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                NotificationChannel channel = new NotificationChannel("notify_001",
-                        "channelku",
-                        NotificationManager.IMPORTANCE_DEFAULT);
-                mNotificationManager.createNotificationChannel(channel);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    NotificationChannel channel = new NotificationChannel("notify_001",
+                            "channelku",
+                            NotificationManager.IMPORTANCE_DEFAULT);
+                    mNotificationManager.createNotificationChannel(channel);
+                }
+
+                mNotificationManager.notify(0, mBuilder.build());
             }
-
-            mNotificationManager.notify(0, mBuilder.build());
+            else
+            {
+                // buka notification setting
+                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Uri uri = Uri.fromParts("package", getPackageName(), null);
+                intent.setData(uri);
+                startActivity(intent);
+            }
         });
 
         binding.btKeluar.setOnClickListener(v -> {
